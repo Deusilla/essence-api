@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace App\Command\Flat;
 
 use App\Command\AbstractCommand;
-use App\Entity\Flat\Cell;
-use App\Entity\Flat\World;
-use App\Repository\Flat\CellRepository;
-use App\Repository\Flat\WorldRepository;
+use App\Entity\Map\Cell;
+use App\Entity\Map\World;
+use App\Repository\Map\CellRepository;
+use App\Repository\Map\WorldRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputArgument;

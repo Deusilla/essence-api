@@ -2,32 +2,39 @@
 
 declare(strict_types=1);
 
-namespace App\Entity\Flat;
+namespace App\Entity\Map;
 
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
-use App\Repository\Flat\WorldRepository;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\Put;
+use App\Repository\Map\WorldRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: WorldRepository::class)]
-#[ApiResource]
+#[ORM\Table(name: 'map_worlds')]
+#[ApiResource(routePrefix: '/map')]
 #[Get(normalizationContext: ['groups' => self::GROUP_READ_ITEM])]
 #[GetCollection(normalizationContext: ['groups' => self::GROUP_READ_COLLECTION])]
+#[Post]
+#[Put]
+#[Delete]
 final class World
 {
     /**
      * Render group for item.
      */
-    public const GROUP_READ_ITEM = 'read:world:item';
+    public const GROUP_READ_ITEM = 'read:map:world:item';
 
     /**
      * Render group for collection.
      */
-    public const GROUP_READ_COLLECTION = 'read:world:collection';
+    public const GROUP_READ_COLLECTION = 'read:map:world:collection';
 
     /**
      * @var int|null
@@ -117,7 +124,7 @@ final class World
     /**
      * @param string $name
      *
-     * @return $this
+     * @return self
      */
     public function setName(string $name): self
     {
@@ -137,7 +144,7 @@ final class World
     /**
      * @param int $width
      *
-     * @return $this
+     * @return self
      */
     public function setWidth(int $width): self
     {
@@ -157,7 +164,7 @@ final class World
     /**
      * @param int $height
      *
-     * @return $this
+     * @return self
      */
     public function setHeight(int $height): self
     {
@@ -177,7 +184,7 @@ final class World
     /**
      * @param Cell $cell
      *
-     * @return $this
+     * @return self
      */
     public function addCell(Cell $cell): self
     {
@@ -192,7 +199,7 @@ final class World
     /**
      * @param Cell $cell
      *
-     * @return $this
+     * @return self
      */
     public function removeCell(Cell $cell): self
     {
@@ -217,7 +224,7 @@ final class World
     /**
      * @param int $turn
      *
-     * @return $this
+     * @return self
      */
     public function setTurn(int $turn): self
     {

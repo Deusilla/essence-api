@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Repository\Flat;
+namespace App\Repository\Map;
 
-use App\Entity\Flat\World;
+use App\Entity\Map\World;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
