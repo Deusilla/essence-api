@@ -1,0 +1,12 @@
+name: essence-api
+recipe: symfony
+
+config:
+  webroot: public
+  via: nginx
+  php: 8.1
+  database: postgres:13
+
+services:
+  appserver_nginx:
+    scanner: false
