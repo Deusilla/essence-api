@@ -18,7 +18,6 @@
         "symfony/dotenv": "6.1.*",
         "symfony/flex": "^2",
         "symfony/framework-bundle": "6.1.*",
-        "symfony/maker-bundle": "^1.47",
         "symfony/messenger": "6.1.*",
         "symfony/runtime": "6.1.*",
         "symfony/twig-bundle": "6.1.*",
@@ -28,7 +27,8 @@
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
             "symfony/flex": true,
-            "symfony/runtime": true
+            "symfony/runtime": true,
+            "phpro/grumphp": true
         },
         "optimize-autoloader": true,
         "preferred-install": {
@@ -75,5 +75,11 @@
             "allow-contrib": false,
             "require": "6.1.*"
         }
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.12",
+        "php-cs-fixer/diff": "^2.0",
+        "phpro/grumphp": "^1.13",
+        "symfony/maker-bundle": "^1.47"
     }
 }

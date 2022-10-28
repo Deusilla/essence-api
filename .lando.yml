@@ -10,3 +10,13 @@ config:
 services:
   appserver_nginx:
     scanner: false
+
+tooling:
+  # Linters
+  cs-fix:
+    service: appserver
+    description: Runs php-cs-fixer (config, src, migrations)
+    cmd:
+      - /app/vendor/bin/php-cs-fixer fix config
+      - /app/vendor/bin/php-cs-fixer fix src
+      - /app/vendor/bin/php-cs-fixer fix migrations
