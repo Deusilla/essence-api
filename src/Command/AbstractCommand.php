@@ -2,36 +2,34 @@
 
 declare(strict_types=1);
 
-
 namespace App\Command;
 
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 
 abstract class AbstractCommand extends Command
 {
     /**
-     * @var string Cut command prefix.
+     * @var string cut command prefix
      */
     private const COMMAND_PREFIX = 'App\\Command\\';
 
     /**
-     * @var string Cut command suffix.
+     * @var string cut command suffix
      */
     private const COMMAND_SUFFIX = 'Command';
 
     /**
-     * @var string Command namespace prefix.
+     * @var string command namespace prefix
      */
     private const COMMAND_NAMESPACE_PREFIX = 'essence';
 
     /**
-     * @var string Word command separator.
+     * @var string word command separator
      */
     private const WORD_SEPARATOR = '-';
 
     /**
-     * @var string Namespace command separator.
+     * @var string namespace command separator
      */
     private const NAMESPACE_SEPARATOR = ':';
 
@@ -45,17 +43,16 @@ abstract class AbstractCommand extends Command
      */
     private function getCommandName(): string
     {
-        $type = \get_class($this);
         $parts = array_map(
             fn (string $part) => $this->wordToSlug($part),
-            $this->separateNamespace($type)
+            $this->separateNamespace(static::class)
         );
 
         return implode(
             self::NAMESPACE_SEPARATOR,
             [
                 self::COMMAND_NAMESPACE_PREFIX,
-                ...$parts
+                ...$parts,
             ]
         );
     }
@@ -95,8 +92,8 @@ abstract class AbstractCommand extends Command
     }
 
     /**
-     * @param string $source
-     * @param array<int>  $points
+     * @param string     $source
+     * @param array<int> $points
      *
      * @return array<string>
      */

@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 namespace App\Command\Flat;
 
 use App\Command\AbstractCommand;
@@ -11,7 +10,6 @@ use App\Entity\Flat\World;
 use App\Repository\Flat\CellRepository;
 use App\Repository\Flat\WorldRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -21,27 +19,27 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 final class CreateNewWorldCommand extends AbstractCommand
 {
     /**
-     * @var string Name argument const.
+     * @var string name argument const
      */
     private const ARGUMENT_NAME = 'name';
 
     /**
-     * @var string Width argument const.
+     * @var string width argument const
      */
     private const ARGUMENT_WIDTH = 'width';
 
     /**
-     * @var string Height argument const.
+     * @var string height argument const
      */
     private const ARGUMENT_HEIGHT = 'height';
 
     /**
-     * @var string Default bar size.
+     * @var string default bar size
      */
     private const BAR_WIDTH = 120;
 
     /**
-     * @var string Default bar format.
+     * @var string default bar format
      */
     private const BAR_FORMAT = "%bar% [%percent%%]\t%message%\n";
 

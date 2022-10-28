@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Repository\Flat;
 
 use App\Entity\Flat\World;
@@ -14,7 +16,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method World[]    findAll()
  * @method World[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class WorldRepository extends ServiceEntityRepository
+final class WorldRepository extends ServiceEntityRepository
 {
     /**
      * @param ManagerRegistry $registry

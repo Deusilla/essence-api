@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Repository\Flat;
 
 use App\Entity\Flat\Cell;
@@ -14,7 +16,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Cell[]    findAll()
  * @method Cell[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class CellRepository extends ServiceEntityRepository
+final class CellRepository extends ServiceEntityRepository
 {
     /**
      * @param ManagerRegistry $registry

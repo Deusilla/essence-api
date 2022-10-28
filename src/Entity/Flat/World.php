@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity\Flat;
 
 use ApiPlatform\Metadata\ApiResource;
@@ -12,11 +14,10 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: WorldRepository::class)]
-
 #[ApiResource]
 #[Get(normalizationContext: ['groups' => self::GROUP_READ_ITEM])]
 #[GetCollection(normalizationContext: ['groups' => self::GROUP_READ_COLLECTION])]
-class World
+final class World
 {
     /**
      * Render group for item.
@@ -92,9 +93,6 @@ class World
     ])]
     private ?int $turn = null;
 
-    /**
-     *
-     */
     public function __construct()
     {
         $this->cells = new ArrayCollection();
